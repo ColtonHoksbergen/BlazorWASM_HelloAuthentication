@@ -1,0 +1,42 @@
+﻿@page "/counter"
+@using Microsoft.AspNetCore.Authorization;
+@using Microsoft.AspNetCore.Components.Authorization;
+
+<!-- USER ADDED CODE: AUTHORIZATION ATTRIBUTE -->
+@attribute [Authorize]
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p>Hello, @Username</p>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+
+    // USER ADDED CODE: CASCADING AUTHENTICATIONSTATE PARAMETER
+    [CascadingParameter]
+    private Task<AuthenticationState> authState { get; set; }
+
+    private int currentCount = 0;
+
+    // USER ADDED CODE: CLAIMS RETRIEVAL
+    private System.Security.Claims.ClaimsPrincipal CurrentUser;
+    private string Username;
+    protected override async Task OnInitializedAsync()
+    {
+        if (authState != null)
+        {
+            CurrentUser = (await authState).User;
+            Username = CurrentUser.FindFirst("username").Value;
+        }
+    }
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}

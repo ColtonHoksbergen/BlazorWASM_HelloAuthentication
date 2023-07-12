@@ -1,0 +1,19 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<!-- USER ADDED CODE: HELLO LOGIN BUTTON -->
+<a class="hello-btn hello-btn-white-and-static hello-btn-hover-flare bottom-button" href=@RedirectURI />
+<p>@RedirectURI</p>
+
+@code {
+
+    // USER ADDED CODE: REDIRECTURI PROPERTY
+    public string? RedirectURI = "login/oidc?RedirectUri=https://localhost:44338/home";
+}
