@@ -22,10 +22,10 @@ I have included in parenthesis comments that have been placed in the code to den
 	a. A link to the CSS page can be added in the <head> section of the page. (search: HELLO CSS)
 	b. A script for the Hello Javascript functions can be inserted into the <body> section of the page. (search: HELLO JAVASCRIPT)
 	
-5. Add necessary authorization code to your page you wish to protect.
+9. Add necessary authorization code to your page you wish to protect.
 	a. At the top of your razor page, near your using statements and imports, add your Authorize attribute. (search: AUTHORIZATION ATTRIBUTE)
 	b. At the top of your @code block of your razor page, add a cascading parameter to pass the authorization state. (search: CASCADING AUTHENTICATIONSTATE PARAMETER)
 	
-6. Login Page setup
+10. Login Page setup
 	a. In the @code block of your desired login page, declare a variable to hold your RedirectURI (search: REDIRECTURI PROPERTY)
 	b. In your HTML, configure your Hello button. (search: HELLO LOGIN BUTTON)
